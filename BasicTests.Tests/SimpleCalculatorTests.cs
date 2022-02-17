@@ -4,10 +4,10 @@ using Xunit;
 
 namespace BasicTests.Tests
 {
-    public class UnitTest1
+    public class SimpleCalculatorTests
     {
         [Fact]
-        public void Sum_SumOfTwoNumbers_ShouldBeRight()
+        public void Sum_SumOfTwoNumbers_ShouldBeRightResult()
         {
             //Arrange
             SimpleCalculator simpleCalculator = new SimpleCalculator();
@@ -20,9 +20,26 @@ namespace BasicTests.Tests
             Assert.Equal((decimal)10000.48, result, 2);
 
         }
+        [Theory]
+        [InlineData(2, 2, 4)]
+        [InlineData(105, 100, 205)]
+        [InlineData(5000.25, 5000.23, 10000.48)]
+        [InlineData(-587, 20, -567)]
+        public void Sum_SumOfTwoNumbers_ShouldBeRightResultUsingMultipleScenarios(decimal value1, decimal value2, decimal sumResult)
+        {
+            //Arrange
+            SimpleCalculator simpleCalculator = new SimpleCalculator();
+            decimal result;
+
+            //Act
+            result = simpleCalculator.Sum(value1, value2);
+
+            //Assert
+            Assert.Equal(sumResult, result, 2);
+        }
 
         [Fact]
-        public void Divide_DivisionOfTwoNumbers_ShouldBeRight()
+        public void Divide_DivisionOfTwoNumbers_ShouldBeRightResult()
         {
             //Arrange
             SimpleCalculator simpleCalculator = new SimpleCalculator();
@@ -36,7 +53,7 @@ namespace BasicTests.Tests
 
         }
         [Fact]
-        public void Divide_DivisionByZero_ShouldThrowException()
+        public void Divide_DivisionByZero_ShouldThrowArgumentException()
         {
             //Arrange
             SimpleCalculator simpleCalculator = new SimpleCalculator();
