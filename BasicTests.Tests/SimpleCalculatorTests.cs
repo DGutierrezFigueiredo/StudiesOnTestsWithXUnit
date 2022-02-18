@@ -83,7 +83,7 @@ namespace BasicTests.Tests
             Action act = () => simpleCalculator.Divide((decimal)5000, (decimal)0);
 
             //Assert
-            ArgumentException exception = Assert.Throws<ArgumentException>(act);
+            DivideByZeroException exception = Assert.Throws<DivideByZeroException>(act);
             Assert.Equal("Cannot divide by Zero", exception.Message);
         }
     }
