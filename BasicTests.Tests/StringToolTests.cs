@@ -21,7 +21,7 @@ namespace BasicTests.Tests
         }
 
         [Fact]
-        public void JoinStrings_DifferentLetterCases_ShouldntMatter()
+        public void JoinStrings_DifferentLetterCases_CasesShouldntMatter()
         {
             //Arrange
             StringTool stringTool = new StringTool();
@@ -60,7 +60,7 @@ namespace BasicTests.Tests
         }
 
         [Fact]
-        public void JoinStrings_CheckingOccuranceAtStringdEnd()
+        public void JoinStrings_CheckingOcurranceAtStringEnd_MustcontainOccurance()
         {
             //Arrange
             StringTool stringTool = new StringTool();
