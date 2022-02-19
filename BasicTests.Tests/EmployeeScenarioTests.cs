@@ -1,5 +1,6 @@
 ﻿
 using BasicTests.EmployeeScenario;
+using System;
 using Xunit;
 
 namespace BasicTests.Tests
@@ -83,6 +84,27 @@ namespace BasicTests.Tests
 
             //Assert
             Assert.Equal(arrOfAllSkills, newEmployee.Skills);
+        }
+
+        [Fact]
+        public void Employee_EmployeeSalary_ShouldThrowExceptionWhenBelowPermittedValue()
+        {
+            //Arrange & Act
+            Action action = () => EmployeeFactory.CreateEmployee("Sue", 400);
+
+            //Assert
+            ArgumentException exception = Assert.Throws<ArgumentException>(action);
+            Assert.Equal("Salary is below permitted value", exception.Message);
+        }
+
+        //Or
+        [Fact]
+        public void Employee_EmployeeSalary_ShouldThrowExceptionWhenBelowPermittedValue2()
+        {
+            //Arrange & Act & Assert
+            ArgumentException exception = Assert.Throws<ArgumentException>(() => EmployeeFactory.CreateEmployee("Sue", 400));
+
+            Assert.Equal("Salary is below permitted value", exception.Message);
         }
     }
 }

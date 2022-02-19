@@ -21,7 +21,7 @@ namespace BasicTests.EmployeeScenario
 
         public void SetSalary(double salary)
         {
-            if (salary < 500) throw new Exception("Salary is below permitted value");
+            if (salary < 500) throw new ArgumentException("Salary is below permitted value");
 
             Salary = salary;
             if (salary < 5000) ProfessionalProficiency = ProfessionalProficiency.Junior;

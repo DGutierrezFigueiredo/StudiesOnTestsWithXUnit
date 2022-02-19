@@ -86,5 +86,19 @@ namespace BasicTests.Tests
             DivideByZeroException exception = Assert.Throws<DivideByZeroException>(act);
             Assert.Equal("Cannot divide by Zero", exception.Message);
         }
+
+        //Or
+
+        [Fact]
+        public void Divide_DivisionByZero_ShouldThrowArgumentException2()
+        {
+            //Arrange 
+            SimpleCalculator simpleCalculator = new SimpleCalculator();
+
+
+            //Act & Assert
+            DivideByZeroException exception = Assert.Throws<DivideByZeroException>(() => simpleCalculator.Divide((decimal)5000, (decimal)0));                 
+            Assert.Equal("Cannot divide by Zero", exception.Message);
+        }
     }
 }
