@@ -24,8 +24,8 @@ namespace BasicTests.EmployeeScenario
             if (salary < 500) throw new Exception("Salary is below permitted value");
 
             Salary = salary;
-            if (salary < 2000) ProfessionalProficiency = ProfessionalProficiency.Junior;
-            else if (salary >= 2000 && salary < 8000) ProfessionalProficiency = ProfessionalProficiency.Middle;
+            if (salary < 5000) ProfessionalProficiency = ProfessionalProficiency.Junior;
+            else if (salary >= 5000 && salary < 8000) ProfessionalProficiency = ProfessionalProficiency.Middle;
             else if (salary >= 8000) ProfessionalProficiency = ProfessionalProficiency.Senior;
         }
 
