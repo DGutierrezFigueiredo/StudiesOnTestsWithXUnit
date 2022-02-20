@@ -106,5 +106,53 @@ namespace BasicTests.Tests
 
             Assert.Equal("Salary is below permitted value", exception.Message);
         }
+
+        [Fact]
+        public void EmployeeFactory_CreateEmployee_ShouldReturnEmployeeObject()
+        {
+            //Arrange & Act
+            Employee newEmployee = EmployeeFactory.CreateEmployee("Diego", 4000);
+
+            //Assert
+            Assert.IsType<Employee>(newEmployee);
+        }
+
+        [Fact]
+        public void EmployeeFactory_CreateEmployee_ShouldReturnAPersonDerivedTypeObject()
+        {
+            //Arrange & Act
+            Employee newEmployee = EmployeeFactory.CreateEmployee("Diego", 4000);
+
+            //Assert
+            Assert.IsAssignableFrom<Person>(newEmployee);
+        }
+
+        [Theory]
+        [InlineData(500)]
+        [InlineData(700)]
+        [InlineData(4500)]
+        [InlineData(5001)]
+        [InlineData(18000)]
+        public void Employee_SalaryRange_ProfessionalProficiencyShouldSatisfySalaryRanges(double salary)
+        {
+            //Arrange & Act
+            Employee newEmployee = new Employee("Diego", salary);
+
+            //Assert
+            if (newEmployee.ProfessionalProficiency == ProfessionalProficiency.Junior)
+            {
+                Assert.InRange(newEmployee.Salary, 500, 5000);
+            }
+            if (newEmployee.ProfessionalProficiency == ProfessionalProficiency.Middle)
+            {
+                Assert.InRange(newEmployee.Salary, 5001, 8000);
+            }
+            if (newEmployee.ProfessionalProficiency == ProfessionalProficiency.Senior)
+            {
+                Assert.InRange(newEmployee.Salary, 8001, double.MaxValue);
+            }
+
+            Assert.NotInRange(newEmployee.Salary, double.MinValue, 499);
+        }
     }
 }
