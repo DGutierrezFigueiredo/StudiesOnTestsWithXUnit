@@ -6,7 +6,9 @@ namespace BasicTests.Tests
 {
     public class SimpleCalculatorTests
     {
-        [Fact]
+        //Numbers
+        [Fact(DisplayName = "Sum of numbers should be correct  - Numbers")]
+        [Trait("Category", "SimpleCalculator")]
         public void Sum_SumOfTwoNumbers_ShouldBeRightResult()
         {
             //Arrange
@@ -21,7 +23,8 @@ namespace BasicTests.Tests
 
         }
 
-        [Theory]
+        [Theory(DisplayName = "Sum of numbers should be correct multiple scenarios - Numbers")]
+        [Trait("Category", "SimpleCalculator")]
         [InlineData(2, 2, 4)]
         [InlineData(105, 100, 205)]
         [InlineData(5000.25, 5000.23, 10000.48)]
@@ -39,7 +42,8 @@ namespace BasicTests.Tests
             Assert.Equal(sumResult, result, 2);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Division of numbers should be correct - Numbers")]
+        [Trait("Category", "SimpleCalculator")]
         public void Divide_DivisionOfTwoNumbers_ShouldBeRightResult()
         {
             //Arrange
@@ -54,7 +58,8 @@ namespace BasicTests.Tests
 
         }
 
-        [Theory]
+        [Theory(DisplayName = "Division of numbers should be correct multiple scenarios - Numbers")]
+        [Trait("Category", "SimpleCalculator")]
         [InlineData(10, 5, 2)]
         [InlineData(13, 5, 2.6)]
         [InlineData(-8000, -300, 26.67)]
@@ -72,7 +77,8 @@ namespace BasicTests.Tests
             Assert.Equal(result, divisionResult, 2);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Division by zero should throw exception - Exceptions")]
+        [Trait("Category", "SimpleCalculator")]
         public void Divide_DivisionByZero_ShouldThrowArgumentException()
         {
             //Arrange
@@ -89,7 +95,8 @@ namespace BasicTests.Tests
 
         //Or
 
-        [Fact]
+        [Fact(DisplayName = "Division by zero should throw exception method 2 - Exceptions")]
+        [Trait("Category", "SimpleCalculator")]
         public void Divide_DivisionByZero_ShouldThrowArgumentException2()
         {
             //Arrange 

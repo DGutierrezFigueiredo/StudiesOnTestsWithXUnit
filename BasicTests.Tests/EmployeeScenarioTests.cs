@@ -9,7 +9,8 @@ namespace BasicTests.Tests
     {
         //Booleans
 
-        [Fact]
+        [Fact(DisplayName = "Employee name shouldn't be empty - Bool")]
+        [Trait("Category", "EmployeeScenario")]
         public void Employee_Name_EmployeeNameShouldNotBeNullOrEmpty()
         {
             //Arrange & Act
@@ -20,7 +21,8 @@ namespace BasicTests.Tests
 
         }
 
-        [Fact]
+        [Fact(DisplayName = "Employee shouldn't have a nickname - Bool")]
+        [Trait("Category", "EmployeeScenario")]
         public void Employee_Nickanme_ShouldNotHaveANickname()
         {
             //Arrange & Act
@@ -36,7 +38,8 @@ namespace BasicTests.Tests
 
         //Collections
 
-        [Fact]
+        [Fact(DisplayName = "Skills can't be empty - Collections")]
+        [Trait("Category", "EmployeeScenario")]
         public void Employee_Skills_ShouldNotHaveEmptySkills()
         {
             //Arrange & Act
@@ -47,7 +50,8 @@ namespace BasicTests.Tests
 
         }
 
-        [Fact]
+        [Fact(DisplayName = "Junior Must Have Basic Skills only - Collections")]
+        [Trait("Category", "EmployeeScenario")]
         public void Employee_JuniorEmployee_MustHaveBasicSkills()
         {
             //Arrange & Act
@@ -57,7 +61,8 @@ namespace BasicTests.Tests
             Assert.Contains("OOP", newEmployee.Skills);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Junior shouldn't have Advanced Skills - Collections")]
+        [Trait("Category", "EmployeeScenario")]
         public void Employee_JuniorEmployee_ShouldNotHaveAdvancedSkills()
         {
             //Arrange & Act
@@ -67,7 +72,8 @@ namespace BasicTests.Tests
             Assert.DoesNotContain("Microservices", newEmployee.Skills);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Senior should have ALL Skills - Collections")]
+        [Trait("Category", "EmployeeScenario")]
         public void Employee_SeniorEmployee_ShoulHaveAllSkills()
         {
             //Arrange & Act
@@ -85,8 +91,8 @@ namespace BasicTests.Tests
             //Assert
             Assert.Equal(arrOfAllSkills, newEmployee.Skills);
         }
-
-        [Fact]
+        [Fact(DisplayName = "Salary below forbidden valeu should throw exception - Exceptions")]
+        [Trait("Category", "EmployeeScenario")]
         public void Employee_EmployeeSalary_ShouldThrowExceptionWhenBelowPermittedValue()
         {
             //Arrange & Act
@@ -98,7 +104,8 @@ namespace BasicTests.Tests
         }
 
         //Or
-        [Fact]
+        [Fact(DisplayName = "Salary below forbidden valeu should throw exception method 2 - Exceptions")]
+        [Trait("Category", "EmployeeScenario")]
         public void Employee_EmployeeSalary_ShouldThrowExceptionWhenBelowPermittedValue2()
         {
             //Arrange & Act & Assert
@@ -107,7 +114,9 @@ namespace BasicTests.Tests
             Assert.Equal("Salary is below permitted value", exception.Message);
         }
 
-        [Fact]
+        //Object types
+        [Fact(DisplayName = "Factory Created employee should be type Employee  - Object Types")]
+        [Trait("Category", "EmployeeScenario")]
         public void EmployeeFactory_CreateEmployee_ShouldReturnEmployeeObject()
         {
             //Arrange & Act
@@ -117,7 +126,8 @@ namespace BasicTests.Tests
             Assert.IsType<Employee>(newEmployee);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Factory Created employee should derive from Person  - Object Types")]
+        [Trait("Category", "EmployeeScenario")]
         public void EmployeeFactory_CreateEmployee_ShouldReturnAPersonDerivedTypeObject()
         {
             //Arrange & Act
@@ -127,7 +137,9 @@ namespace BasicTests.Tests
             Assert.IsAssignableFrom<Person>(newEmployee);
         }
 
-        [Theory]
+        //Ranges
+        [Theory(DisplayName = "Proficiency and salaries should be aligned as designed  - Ranges")]
+        [Trait("Category", "EmployeeScenario")]
         [InlineData(500)]
         [InlineData(700)]
         [InlineData(4500)]
