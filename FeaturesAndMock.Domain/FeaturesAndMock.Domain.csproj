@@ -6,7 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.3.6" />
-    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FeaturesAndMock.Infrastructure\FeaturesAndMock.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

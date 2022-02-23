@@ -1,5 +1,4 @@
-﻿
-using BasicTests.EmployeeScenario;
+﻿using BasicTests.EmployeeScenario;
 using System;
 using Xunit;
 
