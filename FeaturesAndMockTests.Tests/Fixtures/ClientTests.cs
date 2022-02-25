@@ -27,7 +27,7 @@ namespace FeaturesAndMockTests.Tests.Fixtures
 
             //Assert
             Assert.True(result);
-            Assert.Equal(0, newClient.ValidationResult.Errors.Count);
+            Assert.Empty(newClient.ValidationResult.Errors);
 
             
         }
@@ -44,7 +44,7 @@ namespace FeaturesAndMockTests.Tests.Fixtures
 
             //Assert
             Assert.False(result);
-            Assert.NotEqual(0, newClient.ValidationResult.Errors.Count);
+            Assert.NotEmpty(newClient.ValidationResult.Errors);
         }
 
     }
