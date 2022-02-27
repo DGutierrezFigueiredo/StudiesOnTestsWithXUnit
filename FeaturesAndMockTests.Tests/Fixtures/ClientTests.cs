@@ -28,8 +28,7 @@ namespace FeaturesAndMockTests.Tests.Fixtures
             //Assert
             Assert.True(result);
             Assert.Empty(newClient.ValidationResult.Errors);
-
-            
+                        
         }
 
         [Fact(DisplayName = "Client is Invalid")]
