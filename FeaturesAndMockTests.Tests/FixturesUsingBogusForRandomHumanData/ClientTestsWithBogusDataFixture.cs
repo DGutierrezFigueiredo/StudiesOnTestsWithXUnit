@@ -31,11 +31,11 @@ namespace FeaturesAndMockTests.Tests.FixturesUsingBogusForRandomHumanData
             Name.Gender clientGender = new Faker().PickRandom<Name.Gender>();
 
             Faker<Client> clients = new Faker<Client>("pt_BR")
-                .CustomInstantiator(f => new Client(
+                .CustomInstantiator(faker => new Client(
                     Guid.NewGuid(),
-                    f.Name.FirstName(clientGender),
-                    f.Name.LastName(clientGender),
-                    f.Date.Past(80, DateTime.Now.AddYears(-18)),
+                    faker.Name.FirstName(clientGender),
+                    faker.Name.LastName(clientGender),
+                    faker.Date.Past(80, DateTime.Now.AddYears(-18)),
                     "",
                     isActive,
                     DateTime.Now))
