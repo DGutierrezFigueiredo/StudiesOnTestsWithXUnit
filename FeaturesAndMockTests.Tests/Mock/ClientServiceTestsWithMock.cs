@@ -21,7 +21,7 @@ namespace FeaturesAndMockTests.Tests.Mock
             _clientTestsWithBogusDataFixture = clientTestsWithBogusFixture;
         }
 
-        [Fact(DisplayName = "Successfuly Add Client To Repository")]
+        [Fact(DisplayName = "Successfully Add Client To Repository")]
         [Trait("Category", "Mock and Bogus")]
         public void ClientService_AddClient_ShouldSucceedInAddingClientToRepo()
         {
