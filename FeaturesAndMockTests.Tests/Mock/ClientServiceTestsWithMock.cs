@@ -71,7 +71,7 @@ namespace FeaturesAndMockTests.Tests.Mock
             Mock<IClientRepository> clientRepository = new Mock<IClientRepository>();
             Mock<IMediator> mediator = new Mock<IMediator>();
 
-            clientRepository.Setup(client => client.GetallClients())
+            clientRepository.Setup(repo => repo.GetallClients())
                 .Returns(_clientTestsWithBogusDataFixture.GetAssortedClients());
 
             ClientService clientService = new ClientService(clientRepository.Object, mediator.Object);
