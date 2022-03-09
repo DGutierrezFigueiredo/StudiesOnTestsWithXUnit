@@ -77,13 +77,13 @@ namespace FeaturesAndMockTests.Tests.Mock
             ClientService clientService = new ClientService(clientRepository.Object, mediator.Object);
 
             //Act
-            IEnumerable<Client> clients = clientService.GetAllActiveClients();
+            IEnumerable<Client> resultOfClients = clientService.GetAllActiveClients();
 
             //Assert
             clientRepository.Verify(repo => repo.GetallClients(), Times.Once);
-            Assert.True(clients.Any());
-            Assert.True(clients.Count(client => client.IsActive) > 0);
-            Assert.False(clients.Count(client => !client.IsActive) > 0);
+            Assert.True(resultOfClients.Any());
+            Assert.True(resultOfClients.Count(client => client.IsActive) > 0);
+            Assert.False(resultOfClients.Count(client => !client.IsActive) > 0);
             
         }
 
