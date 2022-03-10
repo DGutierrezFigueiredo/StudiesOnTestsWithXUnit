@@ -21,7 +21,7 @@ namespace FeaturesAndMockTests.Tests.FixturesUsingBogusForRandomHumanData
             var clients = new List<Client>();
 
             clients.AddRange(CreateValidClients(50, true).ToList());
-            clients.AddRange(CreateValidClients(50, false).ToList());
+            clients.AddRange(CreateInvalidClients(50, false).ToList());
 
             return clients;
         }
@@ -41,6 +41,23 @@ namespace FeaturesAndMockTests.Tests.FixturesUsingBogusForRandomHumanData
                     DateTime.Now))
                 .RuleFor(client => client.Email, (faker, client) =>
                       faker.Internet.Email(client.Name.ToLower(), client.LastName.ToLower()));
+
+            return clients.Generate(quantityOfClients);
+        }
+
+        public IEnumerable<Client> CreateInvalidClients(int quantityOfClients, bool isActive)
+        {
+            Name.Gender clientGender = new Faker().PickRandom<Name.Gender>();
+
+            Faker<Client> clients = new Faker<Client>("pt_BR")
+                .CustomInstantiator(faker => new Client(
+                    Guid.NewGuid(),
+                    "",
+                    "",
+                    faker.Date.Past(80, DateTime.Now.AddYears(-18)),
+                    faker.Internet.Email(),
+                    isActive,
+                    DateTime.Now));
 
             return clients.Generate(quantityOfClients);
         }
